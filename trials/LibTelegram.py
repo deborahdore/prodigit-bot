@@ -1,9 +1,10 @@
 import logging
+import requests as re
 from telegram import *
 from telegram.ext import filters, MessageHandler, ApplicationBuilder, CommandHandler, CallbackContext
 
 
-logging.basicConfig(
+"""logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     level=logging.INFO
 )
@@ -32,4 +33,28 @@ if __name__ == '__main__':
     application.add_handler(CommandHandler('strunz', rispondimale))
     application.add_handler(CommandHandler('book', book))
                
-    application.run_polling()
+    application.run_polling()"""
+
+botoken='5214072158:AAGj-lZig1CmTn06nI7JBiTH7nbm1grlv_I'
+endpoint = 'https://api.telegram.org/bot'+botoken+'/'
+initbot = re.get(endpoint+'getme')
+last = 0
+
+def update():
+    messages = re.get(endpoint+'getUpdates').json()
+    for i in range(messages['result']):
+        if(messages['result'][i]['update_id'] > last):
+            last = messages['result'][i]['update_id']
+            return messages['result'][i:]
+
+if __name__ == '__main__':
+    messages = []
+    while True:
+        if(len(messages)==0):
+            messages.append(update)
+
+        if(len(messages)!=0):
+            for i in messages:
+                messages.remove(i)
+
+#print(initbot.json())
