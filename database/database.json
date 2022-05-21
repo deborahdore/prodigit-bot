@@ -1,0 +1,181 @@
+{
+    "users": {},
+    "lessons": {
+        "HUMAN COMPUTER INTERACTION": [
+            {
+                "building": "RM115",
+                "room": "Aula G50",
+                "day": "Tuesday",
+                "from": "11:00",
+                "to": "14:00"
+            },
+            {
+                "building": "RM115",
+                "room": "Aula G50",
+                "day": "Friday",
+                "from": "9:00",
+                "to": "11:00"
+            }
+        ],
+        "ADVANCED SOFTWARE ENGINEERING": [
+            {
+                "building": "RM018",
+                "room": "Aula 2",
+                "day": "Wedsnesday",
+                "from": "14:00",
+                "to": "16:00"
+            },
+            {
+                "building": "RM018",
+                "room": "Aula 2",
+                "day": "Wedsnesday",
+                "from": "14:00",
+                "to": "16:00"
+            }
+        ],
+        "BIG DATA COMPUTING": [
+            {
+                "building": "RM018",
+                "room": "Aula 1",
+                "day": "Tuesday",
+                "from": "17:00",
+                "to": "19:00"
+            },
+            {
+                "building": "RM018",
+                "room": "Aula 1",
+                "day": "Tuesday",
+                "from": "08:00",
+                "to": "11:00"
+            }
+        ],
+        "CLOUD COMPUTING": [
+            {
+                "building": "CU035",
+                "room": "Aula 15",
+                "day": "Tuesday",
+                "from": "10:00",
+                "to": "12:00"
+            },
+            {
+                "building": "CU007",
+                "room": "Aula 14",
+                "day": "Tuesday",
+                "from": "15:00",
+                "to": "19:00"
+            }
+        ],
+        "COMPUTER NETWORK PERFORMANCE": [
+            {
+                "building": "RM018",
+                "room": "Aula 1",
+                "day": "Monday",
+                "from": "11:00",
+                "to": "13:00"
+            },
+            {
+                "building": "RM018",
+                "room": "Aula 1",
+                "day": "Tuesday",
+                "from": "14:00",
+                "to": "17:00"
+            }
+        ],
+        "DEEP LEARNING AND APPLIED ARTIFICIAL INTELLIGENCE": [
+            {
+                "building": "RM018",
+                "room": "Aula 1",
+                "day": "Thursday",
+                "from": "10:00",
+                "to": "12:00"
+            },
+            {
+                "building": "RM018",
+                "room": "Aula 2",
+                "day": "Wednesday",
+                "from": "16:00",
+                "to": "19:00"
+            }
+        ],
+        "INTERNET OF THINGS": [
+            {
+                "building": "RM018",
+                "room": "Aula 1",
+                "day": "Wednesday",
+                "from": "12:00",
+                "to": "14:00"
+            },
+            {
+                "building": "RM018",
+                "room": "Aula 1",
+                "day": "Friday",
+                "from": "11:00",
+                "to": "14:00"
+            }
+        ],
+        "MATHEMATICAL LOGIC FOR COMPUTER SCIENCE": [
+            {
+                "building": "RM115",
+                "room": "Aula G50",
+                "day": "Tuesday",
+                "from": "08:00",
+                "to": "11:00"
+            },
+            {
+                "building": "RM115",
+                "room": "Aula G50",
+                "day": "Thursday",
+                "from": "08:00",
+                "to": "10:00"
+            }
+        ],
+        "METHODS IN COMPUTER SCIENCE EDUCATION: ANALYSIS": [
+            {
+                "building": "RM115",
+                "room": "Aula G50",
+                "day": "Monday",
+                "from": "14:00",
+                "to": "17:00"
+            },
+            {
+                "building": "RM115",
+                "room": "Aula G50",
+                "day": "Tuesday",
+                "from": "14:00",
+                "to": "16:00"
+            }
+        ],
+        "NATURAL LANGUAGE PROCESSING": [
+            {
+                "building": "RM102",
+                "room": "Aula A3",
+                "day": "Thursday",
+                "from": "16:00",
+                "to": "18:00"
+            },
+            {
+                "building": "RM102",
+                "room": "Aula A5",
+                "day": "Monday",
+                "from": "14:00",
+                "to": "17:00"
+            }
+        ],
+        "PRACTICAL NETWORK DEFENSE": [
+            {
+                "building": "RM018",
+                "room": "Aula 1",
+                "day": "Monday",
+                "from": "17:00",
+                "to": "19:00"
+            },
+            {
+                "building": "RM025",
+                "room": "Aula Informatica 15",
+                "day": "Thursday",
+                "from": "12:00",
+                "to": "15:00"
+            }
+        ]
+    }
+}
