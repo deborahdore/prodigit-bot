@@ -12,12 +12,6 @@ def handle_start_help(message):
                      "2. Manage reminders")
 
 
-# Handles all sent documents and audio files
-@bot.message_handler(content_types=['document', 'audio'])
-def handle_docs_audio(message):
-    pass
-
-
 # Handles all text messages that match the regular expression
 @bot.message_handler(regexp="/book")
 def handle_message(message):
@@ -30,6 +24,12 @@ def handle_message(message):
     bot.send_message(message.chat.id,
                      "reminder")
 
+
+'''
+# Handles all sent documents and audio files
+@bot.message_handler(content_types=['document', 'audio'])
+def handle_docs_audio(message):
+    pass
 
 # Handles all messages for which the lambda returns True
 @bot.message_handler(func=lambda message: message.document.mime_type == 'text/plain', content_types=['document'])
@@ -54,6 +54,7 @@ def handle_text_doc(message):
 def send_something(message):
     pass
 
+'''
 
 if __name__ == '__main__':
     bot.infinity_polling(interval=0, timeout=20)
