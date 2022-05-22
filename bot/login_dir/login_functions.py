@@ -1,5 +1,5 @@
 from bot.login_dir.login import login
-from bot.markup import start_markup
+from bot.markup import start_markup, save_credentials_markup
 from bot.utility import load_user_database, save_to_user_database
 
 
@@ -50,7 +50,8 @@ def insert_password(message, mutex, bot, phases):
         database[id_telegram]['token'] = token
         save_to_user_database(database, mutex)
         bot.send_message(message.chat.id, "You have logged in correctly. \n"
-                                          "Do you want to save your credentials?\n Yes/No/Cancel")
+                                          "Do you want to save your credentials?\n",
+                         reply_markup=save_credentials_markup())
         phases[message.chat.id] = "waiting for save credentials"
     else:
         bot.send_message(message.chat.id, "Incorrect credentials. Re-enter your matricola")
@@ -67,13 +68,7 @@ def save_credentials(message, mutex, bot, phases):
         database[id_telegram]['matricola'] = ""
         database[id_telegram]['password'] = ""
 
-    else:
-        phases[message.chat.id] = "start"
-        bot.send_message(message.chat.id,
-                         "What do you want to do?:\n"
-                         "1. Book a lecture \n"
-                         "2. Manage reminders", reply_markup=start_markup())
-
     save_to_user_database(database, mutex)
-    bot.send_message(message.chat.id,  "Okay! All good! \n Write the name of the course you want to book for")
+    bot.send_message(message.chat.id,  "Okay! All good!\n"
+                                       "Write the name of the course you want to book for.")
     phases[message.chat.id] = "waiting for lesson name"
