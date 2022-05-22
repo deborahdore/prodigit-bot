@@ -75,5 +75,5 @@ def save_credentials(message, mutex, bot, phases):
                          "2. Manage reminders", reply_markup=start_markup())
 
     save_to_user_database(database, mutex)
-    bot.send_message(message.chat.id,  "Okay! All good! \n Write the name of the course you want to book for.")
+    bot.send_message(message.chat.id,  "Okay! All good! \n Write the name of the course you want to book for")
     phases[message.chat.id] = "waiting for lesson name"

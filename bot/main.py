@@ -3,7 +3,7 @@ import threading
 import telebot
 
 from bot.login_dir.login_functions import call_booking_request, insert_matricola, user_exist, insert_password, save_credentials
-from bot.book_functions import booking_request
+from bot.book_functions import booking_fork, booking_request
 from bot.markup import start_markup
 from bot.utility import load_user_database, save_to_user_database
 
@@ -20,8 +20,6 @@ phases = {}
 - waiting for password
 - waiting for save credentials
 - waiting for lesson name
-
-
 '''
 
 
@@ -60,6 +58,16 @@ def handle_message(call):
     phases[call.message.chat.id] = "reminder"
     pass
 
+@bot.callback_query_handler(func=lambda call: call.data == "/lesson*")
+def handle_message(call):
+    phases[call.message.chat.id] = "start"
+    call_booking_request(call, mutex, bot, phases)
+
+@bot.callback_query_handler(func=lambda call: call.data == "/new_lesson*")
+def handle_message(call):
+    phases[call.message.chat.id] = "start"
+    call_booking_request(call, mutex, bot, phases)
+    bot.send_message("fatto!")
 
 @bot.message_handler()
 def main(message):
@@ -75,7 +83,7 @@ def main(message):
     elif phase == "waiting for save credentials":
         save_credentials(message, mutex, bot, phases)
     if phase == "waiting for lesson name":
-        pass
+        booking_fork(message,mutex,bot,phases)
 
 
 

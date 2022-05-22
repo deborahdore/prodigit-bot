@@ -13,3 +13,9 @@ def save_to_user_database(database, mutex: Semaphore):
     mutex.acquire()
     json.dump(database, open("../database/user-database.json", "w"))
     mutex.release()
+
+def load_lessons_database(mutex: Semaphore):
+    mutex.acquire()
+    db = json.load(open("../database/lesson-database.json"))
+    mutex.release()
+    return db
