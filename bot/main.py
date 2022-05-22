@@ -63,7 +63,7 @@ def handle_message(call):
 
 @bot.message_handler()
 def main(message):
-    phase = phases[str(message.chat.id)]
+    phase = phases[message.chat.id]
     if phase == "book":
         booking_request(message, mutex, bot, phases)
     elif phase == "reminder":
