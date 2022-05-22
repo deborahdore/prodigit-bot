@@ -4,14 +4,14 @@
         "HUMAN COMPUTER INTERACTION": [
             {
                 "building": "RM115",
-                "room": "Aula G50",
+                "room": "AULA G50 -- RM115-E01P03L001",
                 "day": "Tuesday",
                 "from": "11:00",
                 "to": "14:00"
             },
             {
                 "building": "RM115",
-                "room": "Aula G50",
+                "room": "AULA G50 -- RM115-E01P03L001",
                 "day": "Friday",
                 "from": "9:00",
                 "to": "11:00"
@@ -20,14 +20,14 @@
         "ADVANCED SOFTWARE ENGINEERING": [
             {
                 "building": "RM018",
-                "room": "Aula 2",
+                "room": "AULA 2 -- RM018-E01PTEL026",
                 "day": "Wedsnesday",
                 "from": "14:00",
                 "to": "16:00"
             },
             {
                 "building": "RM018",
-                "room": "Aula 2",
+                "room": "AULA 2 -- RM018-E01PTEL026",
                 "day": "Wedsnesday",
                 "from": "14:00",
                 "to": "16:00"
@@ -36,14 +36,14 @@
         "BIG DATA COMPUTING": [
             {
                 "building": "RM018",
-                "room": "Aula 1",
+                "room": "AULA 1 -- RM018-E01PTEL013",
                 "day": "Tuesday",
                 "from": "17:00",
                 "to": "19:00"
             },
             {
                 "building": "RM018",
-                "room": "Aula 1",
+                "room": "AULA 1 -- RM018-E01PTEL013",
                 "day": "Tuesday",
                 "from": "08:00",
                 "to": "11:00"
@@ -52,14 +52,14 @@
         "CLOUD COMPUTING": [
             {
                 "building": "CU035",
-                "room": "Aula 15",
+                "room": "AULA 1 -- RM018-E01PTEL0135",
                 "day": "Tuesday",
                 "from": "10:00",
                 "to": "12:00"
             },
             {
                 "building": "CU007",
-                "room": "Aula 14",
+                "room": "AULA 1 -- RM018-E01PTEL0134",
                 "day": "Tuesday",
                 "from": "15:00",
                 "to": "19:00"
@@ -68,14 +68,14 @@
         "COMPUTER NETWORK PERFORMANCE": [
             {
                 "building": "RM018",
-                "room": "Aula 1",
+                "room": "AULA 1 -- RM018-E01PTEL013",
                 "day": "Monday",
                 "from": "11:00",
                 "to": "13:00"
             },
             {
                 "building": "RM018",
-                "room": "Aula 1",
+                "room": "AULA 1 -- RM018-E01PTEL013",
                 "day": "Tuesday",
                 "from": "14:00",
                 "to": "17:00"
@@ -84,14 +84,14 @@
         "DEEP LEARNING AND APPLIED ARTIFICIAL INTELLIGENCE": [
             {
                 "building": "RM018",
-                "room": "Aula 1",
+                "room": "AULA 1 -- RM018-E01PTEL013",
                 "day": "Thursday",
                 "from": "10:00",
                 "to": "12:00"
             },
             {
                 "building": "RM018",
-                "room": "Aula 2",
+                "room": "AULA 2 -- RM018-E01PTEL026",
                 "day": "Wednesday",
                 "from": "16:00",
                 "to": "19:00"
@@ -100,14 +100,14 @@
         "INTERNET OF THINGS": [
             {
                 "building": "RM018",
-                "room": "Aula 1",
+                "room": "AULA 1 -- RM018-E01PTEL013",
                 "day": "Wednesday",
                 "from": "12:00",
                 "to": "14:00"
             },
             {
                 "building": "RM018",
-                "room": "Aula 1",
+                "room": "AULA 1 -- RM018-E01PTEL013",
                 "day": "Friday",
                 "from": "11:00",
                 "to": "14:00"
@@ -116,14 +116,14 @@
         "MATHEMATICAL LOGIC FOR COMPUTER SCIENCE": [
             {
                 "building": "RM115",
-                "room": "Aula G50",
+                "room": "AULA G50 -- RM115-E01P03L001",
                 "day": "Tuesday",
                 "from": "08:00",
                 "to": "11:00"
             },
             {
                 "building": "RM115",
-                "room": "Aula G50",
+                "room": "AULA G50 -- RM115-E01P03L001",
                 "day": "Thursday",
                 "from": "08:00",
                 "to": "10:00"
@@ -132,14 +132,14 @@
         "METHODS IN COMPUTER SCIENCE EDUCATION: ANALYSIS": [
             {
                 "building": "RM115",
-                "room": "Aula G50",
+                "room": "AULA G50 -- RM115-E01P03L001",
                 "day": "Monday",
                 "from": "14:00",
                 "to": "17:00"
             },
             {
                 "building": "RM115",
-                "room": "Aula G50",
+                "room": "AULA G50 -- RM115-E01P03L001",
                 "day": "Tuesday",
                 "from": "14:00",
                 "to": "16:00"
@@ -148,14 +148,14 @@
         "NATURAL LANGUAGE PROCESSING": [
             {
                 "building": "RM102",
-                "room": "Aula A3",
+                "room": "AULA A3 -- RM102-E01PR1L008",
                 "day": "Thursday",
                 "from": "16:00",
                 "to": "18:00"
             },
             {
                 "building": "RM102",
-                "room": "Aula A5",
+                "room": "AULA A 5 -- RM102-E01PR1L012",
                 "day": "Monday",
                 "from": "14:00",
                 "to": "17:00"
@@ -164,14 +164,14 @@
         "PRACTICAL NETWORK DEFENSE": [
             {
                 "building": "RM018",
-                "room": "Aula 1",
+                "room": "AULA 1 -- RM018-E01PTEL013",
                 "day": "Monday",
                 "from": "17:00",
                 "to": "19:00"
             },
             {
                 "building": "RM025",
-                "room": "Aula Informatica 15",
+                "room": "AULA INFORMATICA 15 -- RM025-E01PTEL024",
                 "day": "Thursday",
                 "from": "12:00",
                 "to": "15:00"
@@ -180,14 +180,14 @@
         "ADVANCED ALGORITHMS": [
             {
                 "building": "RM115",
-                "room": "Aula G0",
+                "room": "AULA G0 -- RM115-E01PTEL008",
                 "day": "Tuesday",
                 "from": "14:00",
                 "to": "16:00"
             },
             {
                 "building": "RM115",
-                "room": "Aula G0",
+                "room": "AULA G0 -- RM115-E01PTEL008",
                 "day": "Thursday",
                 "from": "09:00",
                 "to": "12:00"
@@ -196,14 +196,14 @@
         "DATA AND NETWORK SECURITY": [
             {
                 "building": "RM062",
-                "room": "Aula Alfa",
+                "room": "AULA ALFA -- RM062-E01PTEL074",
                 "day": "Monday",
                 "from": "14:00",
                 "to": "17:00"
             },
             {
                 "building": "RM062",
-                "room": "Aula Alfa",
+                "room": "AULA ALFA -- RM062-E01PTEL074",
                 "day": "Friday",
                 "from": "15:00",
                 "to": "17:00"
@@ -212,14 +212,14 @@
         "CONCURRENT SYSTEMS": [
             {
                 "building": "RM113",
-                "room": "Aula T1",
+                "room": "AULA T1 -- RM113-E01PTEL001",
                 "day": "Wednesday",
                 "from": "08:00",
                 "to": "11:00"
             },
             {
                 "building": "RM113",
-                "room": "Aula T1",
+                "room": "AULA T1 -- RM113-E01PTEL001",
                 "day": "Friday",
                 "from": "08:00",
                 "to": "10:00"
@@ -228,7 +228,7 @@
         "FUNDAMENTALS OF COMPUTER GRAPHICS": [
             {
                 "building": "RM062",
-                "room": "Aula Alfa",
+                "room": "AULA ALFA -- RM062-E01PTEL074",
                 "day": "Thursday",
                 "from": "11:00",
                 "to": "14:00"
@@ -237,14 +237,14 @@
         "INFORMATION SYSTEMS": [
             {
                 "building": "RM115",
-                "room": "Aula G0",
+                "room": "AULA G0 -- RM115-E01PTEL008",
                 "day": "Monday",
                 "from": "10:00",
                 "to": "13:00"
             },
             {
                 "building": "RM115",
-                "room": "Aula G0",
+                "room": "AULA G0 -- RM115-E01PTEL008",
                 "day": "Thursday",
                 "from": "15:00",
                 "to": "18:00"
@@ -253,14 +253,14 @@
         "INTENSIVE COMPUTATION": [
             {
                 "building": "RM113",
-                "room": "Aula T1",
+                "room": "AULA T1 -- RM113-E01PTEL001",
                 "day": "Wednesday",
                 "from": "11:00",
                 "to": "13:00"
             },
             {
                 "building": "RM113",
-                "room": "Aula T1",
+                "room": "AULA T1 -- RM113-E01PTEL001",
                 "day": "Friday",
                 "from": "10:00",
                 "to": "13:00"
@@ -269,14 +269,14 @@
         "MULTIMODAL INTERACTION": [
             {
                 "building": "RM115",
-                "room": "Aula G0",
+                "room": "AULA G0 -- RM115-E01PTEL008",
                 "day": "Tuesday",
                 "from": "11:00",
                 "to": "14:00"
             },
             {
                 "building": "RM115",
-                "room": "Aula G0",
+                "room": "AULA G0 -- RM115-E01PTEL008",
                 "day": "Thurdsay",
                 "from": "12:00",
                 "to": "14:00"
@@ -285,14 +285,14 @@
         "TOPICS IN PHYSICS": [
             {
                 "building": "RM113",
-                "room": "Aula T1",
+                "room": "AULA T1 -- RM113-E01PTEL001",
                 "day": "Monday",
                 "from": "08:00",
                 "to": "10:00"
             },
             {
                 "building": "RM113",
-                "room": "Aula T1",
+                "room": "AULA T1 -- RM113-E01PTEL001",
                 "day": "Tuesday",
                 "from": "08:00",
                 "to": "11:00"
