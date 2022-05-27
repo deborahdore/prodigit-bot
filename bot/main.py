@@ -1,21 +1,21 @@
 import re
 import threading
+from datetime import datetime
 
 import telebot
 
+from bot.book_dir.book import booking_request
+from bot.book_dir.book_functions import booking_new_lesson, recap, save_lesson, message_booking_request
 from bot.login_dir.login_functions import call_booking_request, insert_matricola, user_exist, insert_password, \
     save_credentials
-from bot.book_functions import booking_new_lesson, recap, booking_request, save_lesson
-from bot.markup import start_markup, confirm_save_lesson_markup
-from bot.utility import load_user_database, save_to_user_database, load_lessons_database
-from bot.login_dir.login_functions import call_booking_request, insert_matricola, user_exist, insert_password, save_credentials
-from bot.book_functions import booking_request
+from bot.markup import confirm_save_lesson_markup
 from bot.markup import start_markup, reminder_markup
 from bot.reminder_functions import manage_reminder
+from bot.utility import load_lessons_database
 from bot.utility import load_user_database, save_to_user_database
 
 mutex = threading.Semaphore()
-lessons = load_lessons_database(mutex)
+lessons = load_lessons_database()
 bot = telebot.TeleBot("5214072158:AAGj-lZig1CmTn06nI7JBiTH7nbm1grlv_I")
 phases = {}
 
@@ -30,7 +30,9 @@ phases = {}
 - waiting for confirm
 - waiting for book
 '''
-
+@bot.message_handler(commands=['book'])
+def handle_start_help(message):
+    message_booking_request(message, mutex, bot, phases, lessons)
 
 @bot.message_handler(commands=['start'])
 def handle_start_help(message):
@@ -45,7 +47,8 @@ def handle_start_help(message):
             "saved_lessons": [],
             "weekly_reminders": False,
             "daily_reminders": False,
-            "chat_id": message.chat.id
+            "chat_id": message.chat.id,
+            "timestamp_token": str(datetime.today().strftime('%Y-%m-%d %H:%M:%S'))
         }
         save_to_user_database(database, mutex)
 
@@ -60,7 +63,7 @@ def handle_start_help(message):
 @bot.callback_query_handler(func=lambda call: call.data == "/book")
 def handle_message(call):
     phases[call.message.chat.id] = "book"
-    call_booking_request(call, mutex, bot, phases,lessons)
+    call_booking_request(call.from_user.id, call.message.chat.id, mutex, bot, phases, lessons)
 
 
 @bot.callback_query_handler(func=lambda call: call.data == "/reminders")
@@ -70,18 +73,19 @@ def handle_message(call):
     flag_w = database[str(call.from_user.id)]["weekly_reminders"]
     flag_d = database[str(call.from_user.id)]["daily_reminders"]
     bot.send_message(call.message.chat.id, "What do you want to do? \n\n"
-                                      "The weekly reminder will warn you every Sunday at 5pm to book the lessons "
-                                      "for the following week \n\nThe lesson reminder will warn you the day before "
-                                      "each lesson to remind you cancel it, if you are not going to attend\n\n"
-                                      "If you have already set a reminder you will have the option to disable it",
+                                           "The weekly reminder will warn you every Sunday at 5pm to book the lessons "
+                                           "for the following week \n\nThe lesson reminder will warn you the day before "
+                                           "each lesson to remind you cancel it, if you are not going to attend\n\n"
+                                           "If you have already set a reminder you will have the option to disable it",
                      reply_markup=reminder_markup(flag_w, flag_d))
 
 
-@bot.callback_query_handler(func = lambda call : re.match('^[rem]',call.data))
+@bot.callback_query_handler(func=lambda call: re.match('^[rem]', call.data))
 def callback_query(call):
     phase = phases[call.message.chat.id]
     if phase == "reminder":
         manage_reminder(call, mutex, bot, phases)
+
 
 @bot.callback_query_handler(func=lambda call: re.match("^/l", call.data))
 def handle_message(call):
@@ -108,7 +112,7 @@ def handle_message(call):
         saving_list = ""
         lesson_list = call.data.split("_")
         for i in range(2, len(lesson_list)):
-            booking_request(lesson_list[i], mutex, bot, lessons)
+            booking_request(lesson_list[i], mutex, bot, lessons, call, phases)
             saving_list = saving_list + "_" + lesson_list[i]
         bot.send_message(call.message.chat.id,
                          "Done! Would you like to save this reservations infos for future reservation?\n"
@@ -117,7 +121,7 @@ def handle_message(call):
     elif re.match("/bk_", call.data):
         bot.send_message(call.message.chat.id, "Okay, I'm going to book it! Please Wait")
         for lesson in call.data.split("_")[1:]:
-            booking_request(lesson, mutex, bot, lessons)
+            booking_request(lesson, mutex, bot, lessons, call, phases)
         bot.send_message(call.message.chat.id, "All Done! What  would you like to do:\n"
                                                "1. Book a lecture \n"
                                                "2. Manage reminders", reply_markup=start_markup())
@@ -140,7 +144,7 @@ def handle_message(call):
 def main(message):
     phase = phases[message.chat.id]
     if phase == "book":
-        booking_request(message, mutex, bot, phases)
+        message_booking_request(message, mutex, bot, phases, lessons)
     elif phase == "reminder":
         pass
     elif phase == "waiting for matricola":

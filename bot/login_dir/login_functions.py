@@ -1,5 +1,7 @@
+from datetime import datetime, timedelta
+
 from bot.login_dir.login import login
-from bot.markup import start_markup, save_credentials_markup, user_lessons_markups
+from bot.markup import save_credentials_markup, user_lessons_markups
 from bot.utility import load_user_database, save_to_user_database
 
 
@@ -9,29 +11,40 @@ def user_exist(id_telegram, mutex):
 
 
 def check_if_we_have_credentials(id_telegram, mutex):
-    database = load_user_database(mutex)
-    return database[str(id_telegram)]['login'], database[str(id_telegram)]['saved_lessons']
+    database = load_user_database(mutex)[str(id_telegram)]
+    is_logged = database['login']
+    saved_lessons = database['saved_lessons']
+    if is_logged is False:
+        # check for token
+        if database['token'] is not "":
+            # check for timestamp
+            now = datetime.now()
+            if (now - timedelta(hours=2)) <= datetime.strptime(database['timestamp_token'], '%Y-%m-%d %H:%M:%S') <= now:
+                # we took the token less than 2 hour ago
+                is_logged = True
+    return is_logged, saved_lessons
 
 
-def call_booking_request(call, mutex, bot, phases, lessons):
-    assert user_exist(call.from_user.id, mutex)
-    credentials_check = check_if_we_have_credentials(call.from_user.id, mutex)
+def call_booking_request(user_id, chat_id, mutex, bot, phases, lessons):
+    assert user_exist(user_id, mutex)
+    credentials_check = check_if_we_have_credentials(user_id, mutex)
+
     if credentials_check[0]:
         if credentials_check[1]:
-            bot.send_message(call.message.chat.id, "Write the name of the course you want to book for "
-                                                   "or choose a lesson which you have already booked.",
+            bot.send_message(chat_id, "Write the name of the course you want to book for "
+                                      "or choose a lesson which you have already booked.",
                              reply_markup=user_lessons_markups(credentials_check[1], lessons))
-            phases[call.message.chat.id] = "waiting for lesson name"
+            phases[chat_id] = "waiting for lesson name"
         else:
-            bot.send_message(call.message.chat.id, "Write the name of the course you want to book for.")
-            phases[call.message.chat.id] = "waiting for lesson name"
+            bot.send_message(chat_id, "Write the name of the course you want to book for.")
+            phases[chat_id] = "waiting for lesson name"
     else:
         # senza credenziali
-        phases[call.message.chat.id] = "waiting for matricola"
+        phases[chat_id] = "waiting for matricola"
 
-        bot.send_message(call.message.chat.id, "First of all you need to insert your credentials."
-                                               "It will only be used to access Prodigit, and you can choose to delete them afterwards.\n\n"
-                                               "Please write your student ID (matricola)")
+        bot.send_message(chat_id, "First of all you need to insert your credentials."
+                                  "It will only be used to access Prodigit, and you can choose to delete them afterwards.\n\n"
+                                  "Please write your student ID (matricola)")
 
 
 def insert_matricola(message, mutex, bot, phases):

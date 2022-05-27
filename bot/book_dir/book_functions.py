@@ -1,7 +1,8 @@
 import re
 
-from bot.utility import load_user_database, save_to_user_database
+from bot.login_dir.login_functions import call_booking_request
 from bot.markup import create_lessons_markups, confirm_book_markup, start_markup
+from bot.utility import load_user_database, save_to_user_database
 
 
 def booking_new_lesson(message, bot, phases, lessons):
@@ -12,11 +13,6 @@ def booking_new_lesson(message, bot, phases, lessons):
         bot.send_message(message.chat.id, "You want to book for: " + found_lessons[0] + "?",
                          reply_markup=create_lessons_markups(found_lessons[1], found_lessons[2]))
         phases[message.chat.id] = "waiting to book"
-
-
-def booking_request(lesson, mutex, bot, lessons):
-    print("sto prenotando")
-    pass
 
 
 def recap(call, bot, phases, lessons):
@@ -81,3 +77,8 @@ def save_lesson(call, mutex, lessons):
                 database[id_telegram]["saved_lessons"].insert(0, lesson_i)
 
     save_to_user_database(database, mutex)
+
+
+def message_booking_request(message, mutex, bot, phases, lessons):
+    phases[message.chat.id] = "book"
+    call_booking_request(message.from_user.id, message.chat.id, mutex, bot, phases, lessons)
