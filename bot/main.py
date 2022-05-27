@@ -8,6 +8,11 @@ from bot.login_dir.login_functions import call_booking_request, insert_matricola
 from bot.book_functions import booking_new_lesson, recap, booking_request, save_lesson
 from bot.markup import start_markup, confirm_save_lesson_markup
 from bot.utility import load_user_database, save_to_user_database, load_lessons_database
+from bot.login_dir.login_functions import call_booking_request, insert_matricola, user_exist, insert_password, save_credentials
+from bot.book_functions import booking_request
+from bot.markup import start_markup, reminder_markup
+from bot.reminder_functions import manage_reminder
+from bot.utility import load_user_database, save_to_user_database
 
 mutex = threading.Semaphore()
 lessons = load_lessons_database(mutex)
@@ -39,7 +44,8 @@ def handle_start_help(message):
             "login": False,
             "saved_lessons": [],
             "weekly_reminders": False,
-            "daily_reminders": False
+            "daily_reminders": False,
+            "chat_id": message.chat.id
         }
         save_to_user_database(database, mutex)
 
@@ -57,11 +63,25 @@ def handle_message(call):
     call_booking_request(call, mutex, bot, phases,lessons)
 
 
-@bot.callback_query_handler(func=lambda call: call.data == "/reminder")
+@bot.callback_query_handler(func=lambda call: call.data == "/reminders")
 def handle_message(call):
     phases[call.message.chat.id] = "reminder"
-    pass
+    database = load_user_database(mutex)
+    flag_w = database[str(call.from_user.id)]["weekly_reminders"]
+    flag_d = database[str(call.from_user.id)]["daily_reminders"]
+    bot.send_message(call.message.chat.id, "What do you want to do? \n\n"
+                                      "The weekly reminder will warn you every Sunday at 5pm to book the lessons "
+                                      "for the following week \n\nThe lesson reminder will warn you the day before "
+                                      "each lesson to remind you cancel it, if you are not going to attend\n\n"
+                                      "If you have already set a reminder you will have the option to disable it",
+                     reply_markup=reminder_markup(flag_w, flag_d))
 
+
+@bot.callback_query_handler(func = lambda call : re.match('^[rem]',call.data))
+def callback_query(call):
+    phase = phases[call.message.chat.id]
+    if phase == "reminder":
+        manage_reminder(call, mutex, bot, phases)
 
 @bot.callback_query_handler(func=lambda call: re.match("^/l", call.data))
 def handle_message(call):
