@@ -1,5 +1,5 @@
 {
-  "HUMAN COMPUTER INTERACTION": [
+  "1":{"HUMAN COMPUTER INTERACTION": [
       {
         "building": "RM115",
         "room": "AULA G50 -- RM115-E01P03L001",
@@ -14,8 +14,8 @@
         "from": "9:00",
         "to": "11:00"
       }
-    ],
-    "ADVANCED SOFTWARE ENGINEERING": [
+    ]},
+  "2":{"ADVANCED SOFTWARE ENGINEERING": [
       {
         "building": "RM018",
         "room": "AULA 2 -- RM018-E01PTEL026",
@@ -30,8 +30,8 @@
         "from": "14:00",
         "to": "16:00"
       }
-    ],
-    "BIG DATA COMPUTING": [
+    ]},
+  "3":{"BIG DATA COMPUTING": [
       {
         "building": "RM018",
         "room": "AULA 1 -- RM018-E01PTEL013",
@@ -46,8 +46,8 @@
         "from": "08:00",
         "to": "11:00"
       }
-    ],
-    "CLOUD COMPUTING": [
+    ]},
+  "4":{"CLOUD COMPUTING": [
       {
         "building": "CU035",
         "room": "AULA 1 -- RM018-E01PTEL0135",
@@ -62,8 +62,8 @@
         "from": "15:00",
         "to": "19:00"
       }
-    ],
-    "COMPUTER NETWORK PERFORMANCE": [
+    ]},
+  "5" : {"COMPUTER NETWORK PERFORMANCE": [
       {
         "building": "RM018",
         "room": "AULA 1 -- RM018-E01PTEL013",
@@ -78,8 +78,8 @@
         "from": "14:00",
         "to": "17:00"
       }
-    ],
-    "DEEP LEARNING AND APPLIED ARTIFICIAL INTELLIGENCE": [
+    ]},
+  "6" : {"DEEP LEARNING AND APPLIED ARTIFICIAL INTELLIGENCE": [
       {
         "building": "RM018",
         "room": "AULA 1 -- RM018-E01PTEL013",
@@ -94,8 +94,8 @@
         "from": "16:00",
         "to": "19:00"
       }
-    ],
-    "INTERNET OF THINGS": [
+    ]},
+  "7" : {"INTERNET OF THINGS": [
       {
         "building": "RM018",
         "room": "AULA 1 -- RM018-E01PTEL013",
@@ -110,8 +110,8 @@
         "from": "11:00",
         "to": "14:00"
       }
-    ],
-    "MATHEMATICAL LOGIC FOR COMPUTER SCIENCE": [
+    ]},
+  "8" : {"MATHEMATICAL LOGIC FOR COMPUTER SCIENCE": [
       {
         "building": "RM115",
         "room": "AULA G50 -- RM115-E01P03L001",
@@ -126,8 +126,8 @@
         "from": "08:00",
         "to": "10:00"
       }
-    ],
-    "METHODS IN COMPUTER SCIENCE EDUCATION: ANALYSIS": [
+    ]},
+  "9" : {"METHODS IN COMPUTER SCIENCE EDUCATION: ANALYSIS": [
       {
         "building": "RM115",
         "room": "AULA G50 -- RM115-E01P03L001",
@@ -142,8 +142,8 @@
         "from": "14:00",
         "to": "16:00"
       }
-    ],
-    "NATURAL LANGUAGE PROCESSING": [
+    ]},
+  "10" : {"NATURAL LANGUAGE PROCESSING": [
       {
         "building": "RM102",
         "room": "AULA A3 -- RM102-E01PR1L008",
@@ -158,8 +158,8 @@
         "from": "14:00",
         "to": "17:00"
       }
-    ],
-    "PRACTICAL NETWORK DEFENSE": [
+    ]},
+  "11" :  {"PRACTICAL NETWORK DEFENSE": [
       {
         "building": "RM018",
         "room": "AULA 1 -- RM018-E01PTEL013",
@@ -174,8 +174,8 @@
         "from": "12:00",
         "to": "15:00"
       }
-    ],
-    "ADVANCED ALGORITHMS": [
+    ]},
+  "12" : {"ADVANCED ALGORITHMS": [
       {
         "building": "RM115",
         "room": "AULA G0 -- RM115-E01PTEL008",
@@ -190,8 +190,8 @@
         "from": "09:00",
         "to": "12:00"
       }
-    ],
-    "DATA AND NETWORK SECURITY": [
+    ]},
+  "13" : {"DATA AND NETWORK SECURITY": [
       {
         "building": "RM062",
         "room": "AULA ALFA -- RM062-E01PTEL074",
@@ -206,8 +206,8 @@
         "from": "15:00",
         "to": "17:00"
       }
-    ],
-    "CONCURRENT SYSTEMS": [
+    ]},
+  "14" : {"CONCURRENT SYSTEMS": [
       {
         "building": "RM113",
         "room": "AULA T1 -- RM113-E01PTEL001",
@@ -222,8 +222,8 @@
         "from": "08:00",
         "to": "10:00"
       }
-    ],
-    "FUNDAMENTALS OF COMPUTER GRAPHICS": [
+    ]},
+  "15" : {"FUNDAMENTALS OF COMPUTER GRAPHICS": [
       {
         "building": "RM062",
         "room": "AULA ALFA -- RM062-E01PTEL074",
@@ -231,8 +231,8 @@
         "from": "11:00",
         "to": "14:00"
       }
-    ],
-    "INFORMATION SYSTEMS": [
+    ]},
+  "16" : {"INFORMATION SYSTEMS": [
       {
         "building": "RM115",
         "room": "AULA G0 -- RM115-E01PTEL008",
@@ -247,8 +247,8 @@
         "from": "15:00",
         "to": "18:00"
       }
-    ],
-    "INTENSIVE COMPUTATION": [
+    ]},
+  "17" : {"INTENSIVE COMPUTATION": [
       {
         "building": "RM113",
         "room": "AULA T1 -- RM113-E01PTEL001",
@@ -263,8 +263,8 @@
         "from": "10:00",
         "to": "13:00"
       }
-    ],
-    "MULTIMODAL INTERACTION": [
+    ]},
+  "18" : {"MULTIMODAL INTERACTION": [
       {
         "building": "RM115",
         "room": "AULA G0 -- RM115-E01PTEL008",
@@ -279,8 +279,8 @@
         "from": "12:00",
         "to": "14:00"
       }
-    ],
-    "TOPICS IN PHYSICS": [
+    ]},
+  "19" : {"TOPICS IN PHYSICS": [
       {
         "building": "RM113",
         "room": "AULA T1 -- RM113-E01PTEL001",
@@ -295,5 +295,5 @@
         "from": "08:00",
         "to": "11:00"
       }
-    ]
+    ]}
 }

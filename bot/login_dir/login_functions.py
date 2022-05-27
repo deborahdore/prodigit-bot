@@ -1,5 +1,5 @@
 from bot.login_dir.login import login
-from bot.markup import start_markup, save_credentials_markup
+from bot.markup import start_markup, save_credentials_markup, user_lessons_markups
 from bot.utility import load_user_database, save_to_user_database
 
 
@@ -10,15 +10,21 @@ def user_exist(id_telegram, mutex):
 
 def check_if_we_have_credentials(id_telegram, mutex):
     database = load_user_database(mutex)
-    return database[str(id_telegram)]['login']
+    return database[str(id_telegram)]['login'], database[str(id_telegram)]['saved_lessons']
 
 
-def call_booking_request(call, mutex, bot, phases):
+def call_booking_request(call, mutex, bot, phases, lessons):
     assert user_exist(call.from_user.id, mutex)
-
-    if check_if_we_have_credentials(call.from_user.id, mutex):
-        bot.send_message(call.message.chat.id, "Write the name of the course you want to book for.")
-        phases[call.message.chat.id] = "waiting for lesson name"
+    credentials_check = check_if_we_have_credentials(call.from_user.id, mutex)
+    if credentials_check[0]:
+        if credentials_check[1]:
+            bot.send_message(call.message.chat.id, "Write the name of the course you want to book for "
+                                                   "or choose a lesson which you have already booked.",
+                             reply_markup=user_lessons_markups(credentials_check[1], lessons))
+            phases[call.message.chat.id] = "waiting for lesson name"
+        else:
+            bot.send_message(call.message.chat.id, "Write the name of the course you want to book for.")
+            phases[call.message.chat.id] = "waiting for lesson name"
     else:
         # senza credenziali
         phases[call.message.chat.id] = "waiting for matricola"
@@ -58,7 +64,7 @@ def insert_password(message, mutex, bot, phases):
         phases[message.chat.id] = "waiting for matricola"
 
 
-def save_credentials(message, mutex, bot, phases):
+def save_credentials(message, mutex, bot, phases, lessons):
     id_telegram = str(message.from_user.id)
     database = load_user_database(mutex)
     if message.text == "Yes":
@@ -69,6 +75,13 @@ def save_credentials(message, mutex, bot, phases):
         database[id_telegram]['password'] = ""
 
     save_to_user_database(database, mutex)
-    bot.send_message(message.chat.id,  "Okay! All good!\n"
-                                       "Write the name of the course you want to book for.")
+
+    if len(database[id_telegram]["saved_lessons"]) == 0:
+        bot.send_message(message.chat.id, "Okay! All good!\n"
+                                          "Write the name of the course you want to book for.")
+    else:
+        bot.send_message(message.chat.id, "Okay! All good!\n"
+                                          "Write the name of the course you want to book for or choose a lesson which "
+                                          "you have already booked.",
+                         reply_markup=user_lessons_markups(database[id_telegram]["saved_lessons"], lessons))
     phases[message.chat.id] = "waiting for lesson name"
