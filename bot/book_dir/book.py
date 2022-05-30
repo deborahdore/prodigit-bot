@@ -5,7 +5,7 @@ from datetime import datetime
 import requests
 
 from bot.markup import start_markup
-from bot.utility import load_user_database, create_headers
+from bot.utility import load_user_database, create_headers, save_to_user_database
 
 BOOKING_URL = "https://prodigit.uniroma1.it/prenotazioni/prenotaaule.nsf/prenotaposto-aula-lezioni"
 
@@ -64,14 +64,15 @@ def create_params(click_magic, cod_edificio, room, giorno, from_hour, to_hour):
     return data
 
 
-def booking_request(lesson, mutex, bot, lessons, call, phases):
-    lesson = lesson[0:-1]
-    lesson_number = lesson[-1]
+def booking_request(lesson_val, mutex, bot, lessons, call, phases):
+    lesson_name = lesson_val[0:-1]
+    lesson_number = lesson_val[-1]
 
-    lesson_dict = lessons[lesson]
+    lesson_dict = lessons[lesson_name]
     lesson = list(lesson_dict.values())[0][int(lesson_number)]
+    database = load_user_database(mutex)
 
-    headers = create_headers(load_user_database(mutex)[str(call.from_user.id)]['token'])
+    headers = create_headers(database[str(call.from_user.id)]['token'])
 
     params = create_params(find_click_magic(headers), lesson['building'], lesson['room'], lesson['day'], lesson['from'],
                            lesson['to'])
@@ -86,3 +87,6 @@ def booking_request(lesson, mutex, bot, lessons, call, phases):
         phases[call.message.chat.id] = "start"
 
         raise Exception("Booking unconfirmed")
+    else:
+        database[str(call.from_user.id)]["booked_lessons"].append(lesson_val)
+        save_to_user_database(database, mutex)

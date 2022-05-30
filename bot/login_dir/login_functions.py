@@ -16,7 +16,7 @@ def check_if_we_have_credentials(id_telegram, mutex):
     saved_lessons = database['saved_lessons']
     if is_logged is False:
         # check for token
-        if database['token'] is not "":
+        if database['token'] != "":
             # check for timestamp
             now = datetime.now()
             if (now - timedelta(hours=2)) <= datetime.strptime(database['timestamp_token'], '%Y-%m-%d %H:%M:%S') <= now:
@@ -64,7 +64,7 @@ def insert_password(message, mutex, bot, phases):
     password = message.text
 
     token = login(database[id_telegram]['matricola'], password)
-    if token is not "":
+    if token != "":
         database[id_telegram]['password'] = password
         database[id_telegram]['token'] = token
         save_to_user_database(database, mutex)

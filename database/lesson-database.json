@@ -22,16 +22,16 @@
       {
         "building": "RM018",
         "room": "AULA 2 -- RM018-E01PTEL026",
-        "day": "Wedsnesday",
+        "day": "Wednesday",
         "from": "14:00",
         "to": "16:00"
       },
       {
-        "building": "RM018",
-        "room": "AULA 2 -- RM018-E01PTEL026",
-        "day": "Wedsnesday",
+        "building": "RM115",
+        "room": "AULA G50 -- RM115-E01P03L001",
+        "day": "Friday",
         "from": "14:00",
-        "to": "16:00"
+        "to": "17:00"
       }
     ]
   },
