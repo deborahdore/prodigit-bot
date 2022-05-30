@@ -1,7 +1,7 @@
 import re
 
-from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup, KeyboardButton
-from bot.utility import load_user_database, save_to_user_database
+from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
+
 
 def start_markup():
     markup = InlineKeyboardMarkup()
@@ -12,9 +12,9 @@ def start_markup():
 
 
 def save_credentials_markup():
-    markup = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
-    markup.add(KeyboardButton("Yes"),
-               KeyboardButton("No"))
+    markup = InlineKeyboardMarkup()
+    markup.add(InlineKeyboardButton("Yes", callback_data="save_credentials_yes"),
+               InlineKeyboardButton("No", callback_data="save_credentials_no"))
     return markup
 
 
@@ -36,6 +36,7 @@ def reminder_markup(flag_w, flag_d):
     markup.row(btn_d)
     markup.row(btn_eb, btn_db)
     return markup
+
 
 def create_lessons_markups(lesson, lesson_id):
     markup = InlineKeyboardMarkup()

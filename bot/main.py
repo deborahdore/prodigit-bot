@@ -30,9 +30,12 @@ phases = {}
 - waiting for confirm
 - waiting for book
 '''
+
+
 @bot.message_handler(commands=['book'])
 def handle_start_help(message):
     message_booking_request(message, mutex, bot, phases, lessons)
+
 
 @bot.message_handler(commands=['start'])
 def handle_start_help(message):
@@ -58,6 +61,12 @@ def handle_start_help(message):
                      "Hello! I'm a Bot made to make the life of Sapienza' student easy. Here's a list of what you can do:\n"
                      "1. Book a lecture \n"
                      "2. Manage reminders", reply_markup=start_markup())
+
+
+@bot.callback_query_handler(func=lambda call: re.match("^save_credentials", call.data))
+def handle_message(call):
+    phases[call.message.chat.id] = "waiting for lesson name"
+    save_credentials(call.data, str(call.from_user.id), call.message.chat.id, mutex, bot, phases, lessons)
 
 
 @bot.callback_query_handler(func=lambda call: call.data == "/book")
@@ -112,6 +121,7 @@ def handle_message(call):
         saving_list = ""
         lesson_list = call.data.split("_")
         for i in range(2, len(lesson_list)):
+            # QUA C'è UN PROBLEMA: lesson_list[i] passa solo il primo numero
             booking_request(lesson_list[i], mutex, bot, lessons, call, phases)
             saving_list = saving_list + "_" + lesson_list[i]
         bot.send_message(call.message.chat.id,
@@ -152,7 +162,7 @@ def main(message):
     elif phase == "waiting for password":
         insert_password(message, mutex, bot, phases)
     elif phase == "waiting for save credentials":
-        save_credentials(message, mutex, bot, phases, lessons)
+        save_credentials(message.text, str(message.from_user.id), message.chat.id, mutex, bot, phases, lessons)
     if phase == "waiting for lesson name":
         booking_new_lesson(message, bot, phases, lessons)
     if phase == "waiting for confirm":

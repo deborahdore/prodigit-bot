@@ -77,24 +77,23 @@ def insert_password(message, mutex, bot, phases):
         phases[message.chat.id] = "waiting for matricola"
 
 
-def save_credentials(message, mutex, bot, phases, lessons):
-    id_telegram = str(message.from_user.id)
+def save_credentials(message, id_telegram, chat_id, mutex, bot, phases, lessons):
     database = load_user_database(mutex)
-    if message.text == "Yes":
+    if message == "save_credentials_yes":
         database[id_telegram]['login'] = True
 
-    elif message.text == "No":
+    elif message == "save_credentials_no":
         database[id_telegram]['matricola'] = ""
         database[id_telegram]['password'] = ""
 
     save_to_user_database(database, mutex)
 
     if len(database[id_telegram]["saved_lessons"]) == 0:
-        bot.send_message(message.chat.id, "Okay! All good!\n"
-                                          "Write the name of the course you want to book for.")
+        bot.send_message(chat_id, "Okay! All good!\n"
+                                  "Write the name of the course you want to book for.")
     else:
-        bot.send_message(message.chat.id, "Okay! All good!\n"
-                                          "Write the name of the course you want to book for or choose a lesson which "
-                                          "you have already booked.",
+        bot.send_message(chat_id, "Okay! All good!\n"
+                                  "Write the name of the course you want to book for or choose a lesson which "
+                                  "you have already booked.",
                          reply_markup=user_lessons_markups(database[id_telegram]["saved_lessons"], lessons))
-    phases[message.chat.id] = "waiting for lesson name"
+    phases[chat_id] = "waiting for lesson name"
