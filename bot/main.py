@@ -1,7 +1,8 @@
 import re
 import threading
-from datetime import datetime
+from datetime import datetime, time
 
+import schedule
 import telebot
 
 from bot.book_dir.book import booking_request
@@ -169,5 +170,21 @@ def main(message):
         pass
 
 
+schedule.every(10).minutes.do(funzione())
+schedule.every().hour.do(funzione())
+schedule.every().day.at("10:30").do(funzione())
+schedule.every().monday.do(funzione())
+schedule.every().wednesday.at("13:15").do(funzione())
+schedule.every().minute.at(":17").do(funzione())
+
+
+def thread_function():
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
+
+
 if __name__ == '__main__':
+    x = threading.Thread(target=thread_function, args=("ciao",), daemon=True)
+    x.start()
     bot.infinity_polling(interval=0, timeout=60)
