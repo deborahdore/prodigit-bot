@@ -153,38 +153,42 @@ def handle_message(call):
 
 @bot.message_handler()
 def main(message):
-    phase = phases[message.chat.id]
-    if phase == "book":
-        message_booking_request(message, mutex, bot, phases, lessons)
-    elif phase == "reminder":
-        pass
-    elif phase == "waiting for matricola":
-        insert_matricola(message, mutex, bot, phases)
-    elif phase == "waiting for password":
-        insert_password(message, mutex, bot, phases)
-    elif phase == "waiting for save credentials":
-        save_credentials(message.text, str(message.from_user.id), message.chat.id, mutex, bot, phases, lessons)
-    if phase == "waiting for lesson name":
-        booking_new_lesson(message, bot, phases, lessons)
-    if phase == "waiting for confirm":
-        pass
+    try:
+        phase = phases[message.chat.id]
+        if phase == "book":
+            message_booking_request(message, mutex, bot, phases, lessons)
+        elif phase == "reminder":
+            pass
+        elif phase == "waiting for matricola":
+            insert_matricola(message, mutex, bot, phases)
+        elif phase == "waiting for password":
+            insert_password(message, mutex, bot, phases)
+        elif phase == "waiting for save credentials":
+            save_credentials(message.text, str(message.from_user.id), message.chat.id, mutex, bot, phases, lessons)
+        if phase == "waiting for lesson name":
+            booking_new_lesson(message, bot, phases, lessons)
+        if phase == "waiting for confirm":
+            pass
+    except KeyError:
+        bot.send_message(message.chat.id, "Ops! I don't understand what you are trying to do. \n"
+                                          "Here's what you can use me for:", reply_markup=start_markup())
 
 
-schedule.every(10).minutes.do(funzione())
-schedule.every().hour.do(funzione())
-schedule.every().day.at("10:30").do(funzione())
-schedule.every().monday.do(funzione())
-schedule.every().wednesday.at("13:15").do(funzione())
-schedule.every().minute.at(":17").do(funzione())
+# schedule.every(10).minutes.do(funzione())
+# schedule.every().hour.do(funzione())
+# schedule.every().day.at("10:30").do(funzione())
+# schedule.every().monday.do(funzione())
+# schedule.every().wednesday.at("13:15").do(funzione())
+# schedule.every().minute.at(":17").do(funzione())
 
 
-def thread_function():
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
+# def thread_function():
+#     while True:
+#         schedule.run_pending()
+#         time.sleep(1)
 
 
 if __name__ == '__main__':
-    x = threading.Thread(target=thread_function, args=("ciao",), daemon=True)
-    x.start()
+    # x = threading.Thread(target=thread_function, args=("ciao",), daemon=True)
+    # x.start()
     bot.infinity_polling(interval=0, timeout=60)
