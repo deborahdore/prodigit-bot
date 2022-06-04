@@ -134,7 +134,6 @@ def handle_message(call):
         saving_list = ""
         lesson_list = call.data.split("_")
         for i in range(2, len(lesson_list)):
-            # QUA C'è UN PROBLEMA: lesson_list[i] passa solo il primo numero
             booking_request(lesson_list[i], mutex, bot, lessons, call, phases)
             saving_list = saving_list + "_" + lesson_list[i]
         bot.send_message(call.message.chat.id,
