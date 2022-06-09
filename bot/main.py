@@ -78,7 +78,7 @@ def handle_start_help(message):
     phases[message.chat.id] = "start"
 
     bot.send_message(message.chat.id,
-                     "Hello! I'm a Bot made to make the life of Sapienza' student easy. "
+                     "Hello! I'm a Bot made to make the life of Sapienza's student easy. "
                      "Here's a list of what you can do:\n"
                      "1. Book a lecture \n"
                      "2. Manage reminders", reply_markup=start_markup())
