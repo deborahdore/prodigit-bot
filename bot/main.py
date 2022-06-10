@@ -15,10 +15,11 @@ from bot.markup import start_markup
 from bot.reminder_functions import manage_reminder, call_reminder, send_weekly_reminders, send_daily_reminders
 from bot.utility import load_lessons_database
 from bot.utility import load_user_database, save_to_user_database
+import os
 
 mutex = threading.Semaphore()
 lessons = load_lessons_database()
-bot = telebot.TeleBot("5550328206:AAGcfDUWOXMZdvaZKu0wb_jjVYByDuXH7Ms")
+bot = telebot.TeleBot(os.environ['TOKEN'])
 phases = {}
 bot.set_my_commands([telebot.types.BotCommand("/start", "What this bot can do"),
                      telebot.types.BotCommand("/book", "Book a lesson"),
