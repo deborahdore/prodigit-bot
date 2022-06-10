@@ -19,7 +19,7 @@ import os
 
 mutex = threading.Semaphore()
 lessons = load_lessons_database()
-bot = telebot.TeleBot("5550328206:AAGcfDUWOXMZdvaZKu0wb_jjVYByDuXH7Ms")
+bot = telebot.TeleBot(os.environ['TOKEN'])
 phases = {}
 bot.set_my_commands([telebot.types.BotCommand("/start", "What this bot can do"),
                      telebot.types.BotCommand("/book", "Book a lesson"),
