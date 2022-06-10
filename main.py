@@ -1,6 +1,6 @@
 import re
 import threading
-import time
+import time as pytime
 from datetime import datetime, time
 
 import schedule
@@ -19,7 +19,7 @@ import os
 
 mutex = threading.Semaphore()
 lessons = load_lessons_database()
-bot = telebot.TeleBot(os.environ['TOKEN'])
+bot = telebot.TeleBot("5550328206:AAGcfDUWOXMZdvaZKu0wb_jjVYByDuXH7Ms")
 phases = {}
 bot.set_my_commands([telebot.types.BotCommand("/start", "What this bot can do"),
                      telebot.types.BotCommand("/book", "Book a lesson"),
@@ -43,7 +43,7 @@ bot.set_my_commands([telebot.types.BotCommand("/start", "What this bot can do"),
 def handle_start_help(message):
     bot.send_message(message.chat.id,
                      "If something is wrong, you need help, or you found a bug please contact us:\n"
-                     "@Ciatta\n @SuperDent\n @doredeborah")
+                     "@Ciatta\n@SuperDent\n@doredeborah")
 
 
 @bot.message_handler(commands=['book'])
@@ -193,7 +193,7 @@ schedule.every().day.at("19:00").do(send_daily_reminders, bot=bot, mutex=mutex)
 def thread_function():
     while True:
         schedule.run_pending()
-        time.sleep(1)
+        pytime.sleep(1)
 
 
 if __name__ == '__main__':
