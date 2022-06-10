@@ -1,19 +1,19 @@
 {
   "1": {
-    "HUMAN COMPUTER INTERACTION": [
+    "ADVANCED ALGORITHMS": [
       {
         "building": "RM115",
-        "room": "AULA G50 -- RM115-E01P03L001",
+        "room": "AULA G0 -- RM115-E01PTEL008",
         "day": "Tuesday",
-        "from": "11:00",
-        "to": "14:00"
+        "from": "14:00",
+        "to": "16:00"
       },
       {
         "building": "RM115",
-        "room": "AULA G50 -- RM115-E01P03L001",
-        "day": "Friday",
-        "from": "9:00",
-        "to": "11:00"
+        "room": "AULA G0 -- RM115-E01PTEL008",
+        "day": "Thursday",
+        "from": "09:00",
+        "to": "12:00"
       }
     ]
   },
@@ -90,150 +90,6 @@
     ]
   },
   "6": {
-    "DEEP LEARNING AND APPLIED ARTIFICIAL INTELLIGENCE": [
-      {
-        "building": "RM018",
-        "room": "AULA 1 -- RM018-E01PTEL013",
-        "day": "Thursday",
-        "from": "10:00",
-        "to": "12:00"
-      },
-      {
-        "building": "RM018",
-        "room": "AULA 2 -- RM018-E01PTEL026",
-        "day": "Wednesday",
-        "from": "16:00",
-        "to": "19:00"
-      }
-    ]
-  },
-  "7": {
-    "INTERNET OF THINGS": [
-      {
-        "building": "RM018",
-        "room": "AULA 1 -- RM018-E01PTEL013",
-        "day": "Wednesday",
-        "from": "12:00",
-        "to": "14:00"
-      },
-      {
-        "building": "RM018",
-        "room": "AULA 1 -- RM018-E01PTEL013",
-        "day": "Friday",
-        "from": "11:00",
-        "to": "14:00"
-      }
-    ]
-  },
-  "8": {
-    "MATHEMATICAL LOGIC FOR COMPUTER SCIENCE": [
-      {
-        "building": "RM115",
-        "room": "AULA G50 -- RM115-E01P03L001",
-        "day": "Tuesday",
-        "from": "08:00",
-        "to": "11:00"
-      },
-      {
-        "building": "RM115",
-        "room": "AULA G50 -- RM115-E01P03L001",
-        "day": "Thursday",
-        "from": "08:00",
-        "to": "10:00"
-      }
-    ]
-  },
-  "9": {
-    "METHODS IN COMPUTER SCIENCE EDUCATION: ANALYSIS": [
-      {
-        "building": "RM115",
-        "room": "AULA G50 -- RM115-E01P03L001",
-        "day": "Monday",
-        "from": "14:00",
-        "to": "17:00"
-      },
-      {
-        "building": "RM115",
-        "room": "AULA G50 -- RM115-E01P03L001",
-        "day": "Tuesday",
-        "from": "14:00",
-        "to": "16:00"
-      }
-    ]
-  },
-  "10": {
-    "NATURAL LANGUAGE PROCESSING": [
-      {
-        "building": "RM102",
-        "room": "AULA A3 -- RM102-E01PR1L008",
-        "day": "Thursday",
-        "from": "16:00",
-        "to": "18:00"
-      },
-      {
-        "building": "RM102",
-        "room": "AULA A 5 -- RM102-E01PR1L012",
-        "day": "Monday",
-        "from": "14:00",
-        "to": "17:00"
-      }
-    ]
-  },
-  "11": {
-    "PRACTICAL NETWORK DEFENSE": [
-      {
-        "building": "RM018",
-        "room": "AULA 1 -- RM018-E01PTEL013",
-        "day": "Monday",
-        "from": "17:00",
-        "to": "19:00"
-      },
-      {
-        "building": "RM025",
-        "room": "AULA INFORMATICA 15 -- RM025-E01PTEL024",
-        "day": "Thursday",
-        "from": "12:00",
-        "to": "15:00"
-      }
-    ]
-  },
-  "12": {
-    "ADVANCED ALGORITHMS": [
-      {
-        "building": "RM115",
-        "room": "AULA G0 -- RM115-E01PTEL008",
-        "day": "Tuesday",
-        "from": "14:00",
-        "to": "16:00"
-      },
-      {
-        "building": "RM115",
-        "room": "AULA G0 -- RM115-E01PTEL008",
-        "day": "Thursday",
-        "from": "09:00",
-        "to": "12:00"
-      }
-    ]
-  },
-  "13": {
-    "DATA AND NETWORK SECURITY": [
-      {
-        "building": "RM062",
-        "room": "AULA ALFA -- RM062-E01PTEL074",
-        "day": "Monday",
-        "from": "14:00",
-        "to": "17:00"
-      },
-      {
-        "building": "RM062",
-        "room": "AULA ALFA -- RM062-E01PTEL074",
-        "day": "Friday",
-        "from": "15:00",
-        "to": "17:00"
-      }
-    ]
-  },
-  "14": {
     "CONCURRENT SYSTEMS": [
       {
         "building": "RM113",
@@ -251,7 +107,43 @@
       }
     ]
   },
-  "15": {
+  "7": {
+    "DATA AND NETWORK SECURITY": [
+      {
+        "building": "RM062",
+        "room": "AULA ALFA -- RM062-E01PTEL074",
+        "day": "Monday",
+        "from": "14:00",
+        "to": "17:00"
+      },
+      {
+        "building": "RM062",
+        "room": "AULA ALFA -- RM062-E01PTEL074",
+        "day": "Friday",
+        "from": "15:00",
+        "to": "17:00"
+      }
+    ]
+  },
+  "8": {
+      "DEEP LEARNING AND APPLIED ARTIFICIAL INTELLIGENCE": [
+        {
+          "building": "RM018",
+          "room": "AULA 1 -- RM018-E01PTEL013",
+          "day": "Thursday",
+          "from": "10:00",
+          "to": "12:00"
+        },
+        {
+          "building": "RM018",
+          "room": "AULA 2 -- RM018-E01PTEL026",
+          "day": "Wednesday",
+          "from": "16:00",
+          "to": "19:00"
+        }
+      ]
+    },
+  "9": {
     "FUNDAMENTALS OF COMPUTER GRAPHICS": [
       {
         "building": "RM062",
@@ -262,7 +154,25 @@
       }
     ]
   },
-  "16": {
+  "10": {
+    "HUMAN COMPUTER INTERACTION": [
+      {
+        "building": "RM115",
+        "room": "AULA G50 -- RM115-E01P03L001",
+        "day": "Tuesday",
+        "from": "11:00",
+        "to": "14:00"
+      },
+      {
+        "building": "RM115",
+        "room": "AULA G50 -- RM115-E01P03L001",
+        "day": "Friday",
+        "from": "9:00",
+        "to": "11:00"
+      }
+    ]
+  },
+    "11": {
     "INFORMATION SYSTEMS": [
       {
         "building": "RM115",
@@ -280,7 +190,7 @@
       }
     ]
   },
-  "17": {
+  "12": {
     "INTENSIVE COMPUTATION": [
       {
         "building": "RM113",
@@ -298,7 +208,61 @@
       }
     ]
   },
-  "18": {
+  "13": {
+    "INTERNET OF THINGS": [
+      {
+        "building": "RM018",
+        "room": "AULA 1 -- RM018-E01PTEL013",
+        "day": "Wednesday",
+        "from": "12:00",
+        "to": "14:00"
+      },
+      {
+        "building": "RM018",
+        "room": "AULA 1 -- RM018-E01PTEL013",
+        "day": "Friday",
+        "from": "11:00",
+        "to": "14:00"
+      }
+    ]
+  },
+  "14": {
+    "MATHEMATICAL LOGIC FOR COMPUTER SCIENCE": [
+      {
+        "building": "RM115",
+        "room": "AULA G50 -- RM115-E01P03L001",
+        "day": "Tuesday",
+        "from": "08:00",
+        "to": "11:00"
+      },
+      {
+        "building": "RM115",
+        "room": "AULA G50 -- RM115-E01P03L001",
+        "day": "Thursday",
+        "from": "08:00",
+        "to": "10:00"
+      }
+    ]
+  },
+  "15": {
+    "METHODS IN COMPUTER SCIENCE EDUCATION: ANALYSIS": [
+      {
+        "building": "RM115",
+        "room": "AULA G50 -- RM115-E01P03L001",
+        "day": "Monday",
+        "from": "14:00",
+        "to": "17:00"
+      },
+      {
+        "building": "RM115",
+        "room": "AULA G50 -- RM115-E01P03L001",
+        "day": "Tuesday",
+        "from": "14:00",
+        "to": "16:00"
+      }
+    ]
+  },
+  "16": {
     "MULTIMODAL INTERACTION": [
       {
         "building": "RM115",
@@ -313,6 +277,42 @@
         "day": "Thurdsay",
         "from": "12:00",
         "to": "14:00"
+      }
+    ]
+  },
+  "17": {
+    "NATURAL LANGUAGE PROCESSING": [
+      {
+        "building": "RM102",
+        "room": "AULA A3 -- RM102-E01PR1L008",
+        "day": "Thursday",
+        "from": "16:00",
+        "to": "18:00"
+      },
+      {
+        "building": "RM102",
+        "room": "AULA A 5 -- RM102-E01PR1L012",
+        "day": "Monday",
+        "from": "14:00",
+        "to": "17:00"
+      }
+    ]
+  },
+  "18": {
+    "PRACTICAL NETWORK DEFENSE": [
+      {
+        "building": "RM018",
+        "room": "AULA 1 -- RM018-E01PTEL013",
+        "day": "Monday",
+        "from": "17:00",
+        "to": "19:00"
+      },
+      {
+        "building": "RM025",
+        "room": "AULA INFORMATICA 15 -- RM025-E01PTEL024",
+        "day": "Thursday",
+        "from": "12:00",
+        "to": "15:00"
       }
     ]
   },

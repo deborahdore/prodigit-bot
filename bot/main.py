@@ -18,7 +18,7 @@ from bot.utility import load_user_database, save_to_user_database
 
 mutex = threading.Semaphore()
 lessons = load_lessons_database()
-bot = telebot.TeleBot("5214072158:AAGj-lZig1CmTn06nI7JBiTH7nbm1grlv_I")
+bot = telebot.TeleBot("5550328206:AAGcfDUWOXMZdvaZKu0wb_jjVYByDuXH7Ms")
 phases = {}
 bot.set_my_commands([telebot.types.BotCommand("/start", "What this bot can do"),
                      telebot.types.BotCommand("/book", "Book a lesson"),
@@ -78,7 +78,7 @@ def handle_start_help(message):
     phases[message.chat.id] = "start"
 
     bot.send_message(message.chat.id,
-                     "Hello! I'm a Bot made to make the life of Sapienza' student easy. "
+                     "Hello! I'm a Bot made to make the life of Sapienza's student easy. "
                      "Here's a list of what you can do:\n"
                      "1. Book a lecture \n"
                      "2. Manage reminders", reply_markup=start_markup())

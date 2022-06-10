@@ -19,7 +19,7 @@ def recap(call, bot, phases, lessons):
     if re.match("^/n_l", call.data):
         if re.match("^!all", call.data.split("_")[2]):
             lesson = list(lessons[call.data.split("_")[3]].keys())[0]
-            bot.send_message(call.message.chat.id, "Here's a Recap!:\n" + lesson.lower().capitalize()[:-1] +
+            bot.send_message(call.message.chat.id, "Here's a Recap!:\n" + lesson.lower().capitalize() +
                              " for each day of lessons of this week.\n Do you confirm your reservations?",
                              reply_markup=confirm_book_markup(call.data, lessons))
         elif re.match("^\d", call.data.split("_")[2]):
