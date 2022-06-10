@@ -4,8 +4,8 @@ from threading import Semaphore
 
 from requests.structures import CaseInsensitiveDict
 
-USER_DATABASE = "../database/user-database.json"
-LESSON_DATABASE = "../database/lesson-database.json"
+USER_DATABASE = "database/user-database.json"
+LESSON_DATABASE = "database/lesson-database.json"
 
 
 def load_user_database(mutex: Semaphore):
