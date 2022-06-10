@@ -1,7 +1,7 @@
 import re
 import threading
-from datetime import datetime, time
 import time
+from datetime import datetime, time
 
 import schedule
 import telebot
@@ -18,7 +18,7 @@ from bot.utility import load_user_database, save_to_user_database
 
 mutex = threading.Semaphore()
 lessons = load_lessons_database()
-bot = telebot.TeleBot("5550328206:AAGcfDUWOXMZdvaZKu0wb_jjVYByDuXH7Ms")
+bot = telebot.TeleBot("TOKEN")
 phases = {}
 bot.set_my_commands([telebot.types.BotCommand("/start", "What this bot can do"),
                      telebot.types.BotCommand("/book", "Book a lesson"),

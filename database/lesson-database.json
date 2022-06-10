@@ -126,23 +126,23 @@
     ]
   },
   "8": {
-      "DEEP LEARNING AND APPLIED ARTIFICIAL INTELLIGENCE": [
-        {
-          "building": "RM018",
-          "room": "AULA 1 -- RM018-E01PTEL013",
-          "day": "Thursday",
-          "from": "10:00",
-          "to": "12:00"
-        },
-        {
-          "building": "RM018",
-          "room": "AULA 2 -- RM018-E01PTEL026",
-          "day": "Wednesday",
-          "from": "16:00",
-          "to": "19:00"
-        }
-      ]
-    },
+    "DEEP LEARNING AND APPLIED ARTIFICIAL INTELLIGENCE": [
+      {
+        "building": "RM018",
+        "room": "AULA 1 -- RM018-E01PTEL013",
+        "day": "Thursday",
+        "from": "10:00",
+        "to": "12:00"
+      },
+      {
+        "building": "RM018",
+        "room": "AULA 2 -- RM018-E01PTEL026",
+        "day": "Wednesday",
+        "from": "16:00",
+        "to": "19:00"
+      }
+    ]
+  },
   "9": {
     "FUNDAMENTALS OF COMPUTER GRAPHICS": [
       {
@@ -172,7 +172,7 @@
       }
     ]
   },
-    "11": {
+  "11": {
     "INFORMATION SYSTEMS": [
       {
         "building": "RM115",

@@ -1,6 +1,7 @@
+from datetime import datetime
+
 from bot.markup import reminder_markup, start_markup
 from bot.utility import save_to_user_database, load_user_database, load_lessons_database
-from datetime import datetime
 
 
 def call_reminder(user_id, chat_id, mutex, bot):
@@ -83,8 +84,10 @@ def send_daily_reminders(bot, mutex):
                 lesson_dict = lessons[lesson_val[0:-1]]
                 lesson = list(lesson_dict.values())[0][int(lesson_val[-1])]
                 if (now.weekday() + 1) % 7 == day_num[lesson["day"]]:
-                    to_remind.append("\n"  + list(lesson_dict.keys())[0] + " " + lesson["day"] + " from " + lesson["from"] + " to " + lesson["to"] + " in " +
-                                     lesson["room"].split("--")[0] + " " + lesson["building"])
+                    to_remind.append(
+                        "\n" + list(lesson_dict.keys())[0] + " " + lesson["day"] + " from " + lesson["from"] + " to " +
+                        lesson["to"] + " in " +
+                        lesson["room"].split("--")[0] + " " + lesson["building"])
                     to_remove.append(lesson_val)
             if to_remind != "":
                 bot.send_message(user["chat_id"], "Hey! These are the lessons you have tomorrow:" + to_remind +
