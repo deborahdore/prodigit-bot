@@ -41,10 +41,8 @@ def create_lessons_markups(lesson, lesson_id):
     markup = InlineKeyboardMarkup()
     markup.row_width = 1
     for i in range(0, len(lesson)):
-        if i > 7:
-            break
         markup.add(InlineKeyboardButton("Yes on " + lesson[i]["day"], callback_data="/n_l_" + lesson_id + str(i)))
-    markup.add(InlineKeyboardButton("All", callback_data="/n_l_!all_" + lesson_id))
+    markup.add(InlineKeyboardButton("All the lesson of this week", callback_data="/n_l_!all_" + lesson_id))
     markup.add(InlineKeyboardButton("No", callback_data="/n_l_!no"))
     return markup
 
@@ -54,13 +52,15 @@ def user_lessons_markups(user_lessons, lessons):
     markup.row_width = 1
     all_lessons = ""
     for i in range(0, len(user_lessons)):
+        if i > 7:
+            break
         day = lessons[user_lessons[i][:-1]][list(lessons[user_lessons[i][:-1]].keys())[0]][int(
             user_lessons[i][-1])]["day"]
         markup.add(InlineKeyboardButton(list(lessons[user_lessons[i][:-1]].keys())[0].lower().capitalize() + " on " +
                                         day,
                                         callback_data="/l_" + user_lessons[i]))
         all_lessons = all_lessons + "_" + user_lessons[i]
-    markup.add(InlineKeyboardButton("All", callback_data="/l_all" + all_lessons))
+    markup.add(InlineKeyboardButton("All saved lessons", callback_data="/l_all" + all_lessons))
     return markup
 
 
