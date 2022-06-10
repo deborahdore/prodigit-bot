@@ -76,6 +76,8 @@ def insert_password(message, mutex, bot, phases):
         bot.send_message(message.chat.id, "Incorrect credentials. Re-enter your matricola")
         phases[message.chat.id] = "waiting for matricola"
 
+    bot.delete_message(message.chat.id, message.id)
+
 
 def save_credentials(message, id_telegram, chat_id, mutex, bot, phases, lessons):
     database = load_user_database(mutex)

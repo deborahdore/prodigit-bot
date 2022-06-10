@@ -42,7 +42,7 @@ bot.set_my_commands([telebot.types.BotCommand("/start", "What this bot can do"),
 def handle_start_help(message):
     bot.send_message(message.chat.id,
                      "If something is wrong, you need help, or you found a bug please contact us:\n"
-                     "@Ciatta\n@SuperDent\n@Doredeborah")
+                     "@Ciatta\n @SuperDent\n @doredeborah")
 
 
 @bot.message_handler(commands=['book'])
